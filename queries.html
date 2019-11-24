@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <title>Food Distribution Center</title>
+
+  <script src="http://localhost/warehouse/loadpage.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+      <form action="" method="get">
+        <h5>Want to see who has a higher salary than you?</h5>
+        Name of Employee: <input type="text" name="name">
+        <input type="submit" value="1" name = "num">
+      </form>
+
+      <a onclick="loadpage('http://localhost/warehouse/pageloader.php?num=2')">Current Orders</a>
+      <form action="http://localhost/warehouse/allitems.php" method="post">
+        <h5>Click to view all our items</h5>
+        <input type="submit" value="3" name = "num">
+      </form>
+      <form action="http://localhost/warehouse/fooditems.php" method="post">
+        <h5>Click to see Food Items</h5>
+        <input type="submit" value="4" name = "num">
+      </form>
+      <form action="http://localhost/warehouse/warehousemanagers.php" method="post">
+        <h5>Click to see Warehouse Managers</h5>
+        <input type="submit" value="5" name = "num">
+      </form>
+
+      <form action="http://localhost/warehouse/shipdatesearch.php" method="post">
+        <h5>Want to see shipments due on a certain day?</h5>
+        Enter date dd/mm/yyyy: <input type="text" name="date">
+        <input type="submit" value="6" name = "num">
+      </form>
+
+        <table id="outtable" class="display" cellspacing="0" width="100%"></table>
+
+
+
+</body>
+
+</html>

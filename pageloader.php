@@ -17,7 +17,7 @@
 		}
 		if($searchval == 2)
 		{
-			$sql = "SELECT * FROM `store` as S INNER JOIN `order` as O ON S.StoreID = O.StoreID INNER JOIN `orderitems` as I ON O.OrderNum = I.OrderID";
+			$sql = "SELECT S.StoreID, S.Address, S.Name FROM `store` as S INNER JOIN `order` as O ON S.StoreID = O.StoreID INNER JOIN `orderitems` as I ON O.OrderNum = I.OrderID";
 			jsonR($link, $sql);
 			
 		}

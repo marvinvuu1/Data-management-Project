@@ -13,10 +13,10 @@ function tableformat(jsonData){
 	var parsedJson = JSON.parse(jsonData);
 	console.log(parsedJson);
 	var columns = [];
-		$.each(parsedJson, function(key,value){
+		$.each(parsedJson[0], function(key,value){
 		var my_item = {};
-		my_item.title = Object.keys(parsedJson);
-		my_item.data = Object.keys(parsedJson);
+		my_item.title = key;
+		my_item.data = key;
 		columns.push(my_item);
 		console.log("key: "+ key + " value: "+ value);
 	});

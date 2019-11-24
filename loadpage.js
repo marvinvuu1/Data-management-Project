@@ -1,5 +1,5 @@
 
-function loadpage(apiURL){
+function loadpage(aURL){
 	console.log("Getting " + aURL);
 	$.ajax({
 	crossOrigin: false,

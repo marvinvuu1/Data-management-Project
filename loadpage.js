@@ -1,23 +1,24 @@
 
 function loadpage(apiURL){
-	console.log("Getting " + apiURL);
+	console.log("Getting " + aURL);
 	$.ajax({
 	crossOrigin: false,
-	url: apiURL,
+	url: aURL,
 	type: 'GET'
 	}).done(function(data){tableformat(data)
 	})
 }
 
 function tableformat(jsonData){
+	console.log(jsonData);
 	var parsedJson = JSON.parse(jsonData);
 	console.log(parsedJson);
 	var columns = [];
 		$.each(parsedJson[0], function(key,value){
-		var my_item = {};
-		my_item.title = key;
-		my_item.data = key;
-		columns.push(my_item);
+		var records = {};
+		records.title = key;
+		records.data = key;
+		columns.push(records);
 		console.log("key: "+ key + " value: "+ value);
 	});
 	console.log(columns);

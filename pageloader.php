@@ -11,7 +11,7 @@
 		if ($searchval == 1)
 		{
 			$name = $_GET['name'];
-			$sql = "SELECT * FROM `employees` WHERE Salary > ALL (SELECT Salary FROM employees WHERE FirstName LIKE '" . $name ."') ORDER BY ManagerSSN";
+			$sql = "SELECT * FROM `employees` as E WHERE E.Salary > ALL (SELECT B.Salary FROM employees as B WHERE B.FirstName LIKE '" . $name ."')";
 			jsonR($link, $sql);
 			
 		}
@@ -44,8 +44,8 @@ UNION
 		}
 		if($searchval == 6)
 		{
-			$date = $_POST['date'];
-			$sql = "SELECT `Name`, `StoreID`, `Address` FROM store AS S WHERE S.StoreID = ANY (SELECT StoreID FROM `order` AS O WHERE O.RequiredDate = '".$date."')";
+			$date = $_GET['date'];
+			$sql = "SELECT `StoreID`, `Name`, `Address` FROM store AS S WHERE S.StoreID = ANY (SELECT StoreID FROM `order` AS O WHERE O.RequiredDate = '".$date."' ORDER BY S.StoreID DESC)";
 			jsonR($link, $sql);
 			
 		}

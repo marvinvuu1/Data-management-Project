@@ -50,6 +50,29 @@ UNION
 			
 		}
 
+		if($searchval == 7)
+		{
+			$sql = "SELECT * FROM store as S WHERE NOT EXISTS( SELECT 1 FROM `order` AS O WHERE O.StoreID = S.StoreID)";
+			jsonR($link, $sql);
+			
+		}
+		if($searchval == 8)
+		{
+			$shade = $_GET['color'];
+			$sql = "SELECT * FROM `products` WHERE `Color` LIKE '".$shade."'";
+			jsonR($link, $sql);
+		}
+		if($searchval == 9)
+		{
+			$sql = "SELECT * FROM store WHERE Discount != 1.0";
+			jsonR($link, $sql);
+		}
+		if($searchval == 10)
+		{
+			$sql = "SELECT S.Name, SUM(OI.Price) as 'Total($)' FROM `store` as S, `orderitems` as OI, `order` as O WHERE S.StoreID = O.StoreID AND O.OrderNum = OI.OrderID GROUP BY S.Name";
+			jsonR($link, $sql);
+		}
+
 	function jsonR($link, $query)
 	{
 		$result = $link->query($query);

@@ -1,8 +1,12 @@
 
+function removeTable(){
+	window.location.reload(true);
+}
 function loadpage(aURL){
 	console.log("Getting " + aURL);
 	$.ajax({
 	crossOrigin: false,
+	//dataType: 'json',
 	url: aURL,
 	type: 'GET'
 	}).done(function(data){tableformat(data)
@@ -23,7 +27,7 @@ function tableformat(jsonData){
 	});
 	console.log(columns);
 	$(document).ready(function(){
-		$('#outtable').DataTable({
+		table = $('#outtable').DataTable({
 			data: parsedJson,
 			"columns": columns
 		});

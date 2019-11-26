@@ -8,7 +8,7 @@
   <title>Food Distribution Center</title>
 
   <!-- Bootstrap core CSS -->
-  <script src="http://localhost/warehouse/loadpage.js"></script>
+  <script src="./loadpage.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -21,14 +21,25 @@
       <h5>Want to see who has a higher salary than you?</h5>
       Name of Employee: <input type="text" id = "name">
       <button onclick="callpage(1)">Search</button><br>
-      <button onclick="loadpage('http://localhost/warehouse/pageloader.php?num=2')">Current Orders</button><br>
-      <button onclick="loadpage('http://localhost/warehouse/pageloader.php?num=3')">All Items</button><br>
-      <button onclick="loadpage('http://localhost/warehouse/pageloader.php?num=4')">Food Items</button><br>
-      <button onclick="loadpage('http://localhost/warehouse/pageloader.php?num=5')">Warehouse Managers</button><br>
+      <button onclick="loadpage('./api/api.php?num=2')">Current Orders</button><br>
+      <button onclick="loadpage('./api/api.php?num=3')">All Items</button><br>
+      <button onclick="loadpage('./api/api.php?num=4')">Food Items</button><br>
+      <button onclick="loadpage('./api/api.php?num=5')">Warehouse Managers</button><br>
 
       <h5>Want to see shipments due on a certain day?</h5>
       Enter date dd/mm/yyyy: <input type="text" id="date">
       <button onclick="callpage(2)">Search</button><br>
+
+      <button onclick="loadpage('./api/api.php?num=7')">Stores with no orders currently</button><br>
+      <h5>Want to view items of a certain color?</h5>
+      Enter color (Ex. Orange): <input type="text" id = "color">
+      <button onclick="callpage(3)">Search</button><br>
+
+      <button onclick="loadpage('./api/api.php?num=9')">Stores with Discounts</button><br>
+      <button onclick="loadpage('./api/api.php?num=10')">Want to know how much each store currently has ordered?</button><br>
+
+
+      <button onclick="removeTable()">New Query</button>
 
         <table id="outtable" class="display" cellspacing="0" width="100%"></table>
         <script type="text/javascript">
@@ -38,13 +49,19 @@
             {
                 var name = document.getElementById('name').value;
                 //console.log(name);
-                var url = 'http://localhost/warehouse/pageloader.php?num=1&name=' + name;
+                var url = './api/api.php?num=1&name=' + name;
             }
             if(i == 2)
               {
                 var date = document.getElementById('date').value;
                 console.log(name);
-                var url = 'http://localhost/warehouse/pageloader.php?num=6&date=' + date;
+                var url = './api/api.php?num=6&date=' + date;
+              }
+            if(i == 3)
+              {
+                var color = document.getElementById('color').value;
+                console.log(color);
+                var url = './api/api.php?num=8&color=' + color;
               }
             loadpage(url);
           }

@@ -11,32 +11,40 @@
   <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
   <link href="style.css" rel="stylesheet" type="text/css">
   <div class = "title">
-  	<h1>Search Our Database!<h1>
+    <center><h1>Search Our Database!<h1></center>
   </div>
 </head>
 
 <body>
-	<div class = "body">
+  <divstyle class="queries">
+    <div class = "typequeries">
       <h5>Want to see who has a higher salary than you?</h5>
       Name of Employee: <input type="text" id = "name">
-	  <button onclick="callpage(1)">Search</button><br>
+    <button onclick="callpage(1)">Search</button><br>
+      <h5>Want to see shipments due on a certain day?</h5>
+      Enter date dd/mm/yyyy: <input type="text" id="date">
+      <button onclick="callpage(2)">Search</button><br>
+    
+    <h5>Want to view items of a certain color?</h5>
+      <p>Enter color (Ex. Orange): <input type="text" id = "color"></p>
+    <button onclick="callpage(3)">Search</button><br></P>
+
+    <h5>Want to see how much you have ordered? Enter your store name below!</h5>
+      Store Name: <input type="text" id="sname">
+      <button onclick="callpage(4)">Search</button>
+    </div>
+    <div class = "buttonqueries">
       <button class = "send" onclick="loadpage('./api/api.php?num=2')">Current Orders</button><br>
       <button class = "send" onclick="loadpage('./api/api.php?num=3')">All Items</button><br>
       <button class = "send" onclick="loadpage('./api/api.php?num=4')">Food Items</button><br>
       <button class = "send" onclick="loadpage('./api/api.php?num=5')">Warehouse Managers</button><br>
-
-      <h5>Want to see shipments due on a certain day?</h5>
-      Enter date dd/mm/yyyy: <input type="text" id="date">
-      <button onclick="callpage(2)">Search</button><br>
-      <button class = "send" onclick="loadpage('./api/api.php?num=7')">Stores with no orders currently</button><br>
-	  
-	  <h5>Want to view items of a certain color?</h5>
-      <p>Enter color (Ex. Orange): <input type="text" id = "color">
-	  <button onclick="callpage(3)">Search</button><br></P>
       <button class = "send" onclick="loadpage('./api/api.php?num=9')">Stores with Discounts</button><br>
+      <button class = "send" onclick="loadpage('./api/api.php?num=7')">Stores with no orders currently</button><br>
       <button class = "send" onclick="loadpage('./api/api.php?num=10')">Want to know how much each store currently has ordered?</button><br>
-      <button class = "send" onclick="removeTable()">New Query</button>
-	  
+      <button class = "send" onclick="removeTable()">New Query</button><br>
+    </div>
+</div><br><br>
+        <h5 id = "nodata"></h5>
         <table id="outtable" class="display" cellspacing="0" width="100%"></table>
         <script type="text/javascript">
           function callpage(i)
@@ -59,9 +67,14 @@
                 console.log(color);
                 var url = './api/api.php?num=8&color=' + color;
               }
+            if(i ==4)
+            {
+              var sname = document.getElementById('sname').value;
+              console.log(sname);
+              var url = './api/api.php?num=10&sname=' + sname;
+            }
             loadpage(url);
           }
-		</script>
-	</div>
+    </script>
 </body>
 </html>

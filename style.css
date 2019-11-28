@@ -1,16 +1,33 @@
 h5 {
     font-size: 25px;
 }
-button {
-    
+h1 {
+    color: white;
+}
+div.title{
+    background-color: black;
+    padding-left: 30px;
+    padding-right:30px;
+    padding-top:50px;
+    padding-bottom:30px;
+}
+button.send {
     border-color: lightgrey;
-    background-color: transparent;
-    padding:1px;
-    margin: 1px;
-    color:blue;
+    padding:3px;
+    margin: 5px;
+    color: black;
 }
 body {
-    padding-top: 100px;
     padding-right: 200px;
     padding-left: 200px;
+    background-color:lightgrey;
 }
+div.body { 
+    background-color: white;
+    padding-left:30px;
+    padding-right:30px;
+    padding-top:10px;
+    padding-bottom:30px;
+}
+
+

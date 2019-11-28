@@ -15,19 +15,14 @@ function loadpage(aURL){
 
 function tableformat(jsonData){
 	console.log(jsonData);
-	var parsedJson = JSON.parse(jsonData);
-	console.log(parsedJson.length)
-	if(parsedJson.length == 1)
+	if(jsonData.length == 4)
 	{
-		var node = document.createElement("h5");
-		var text = document.createTextNode("No data");
-		node.appendChild(text);
-		document.getElementById("nodata").appendChild(node)
-
+		alert("Sorry, there is no data for that. Try again!");
+		removeTable();
 	}
 	else
 	{
-		console.log(parsedJson);
+		var parsedJson = JSON.parse(jsonData);
 		var columns = [];
 			$.each(parsedJson[0], function(key,value){
 			var records = {};

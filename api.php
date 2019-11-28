@@ -59,7 +59,7 @@ UNION
 		if($searchval == 8)
 		{
 			$shade = $_GET['color'];
-			$sql = "SELECT * FROM `products` WHERE `Color` LIKE '".$shade."'";
+			$sql = "SELECT Department, Name, Price, Qty, Season, Brand FROM `products` WHERE `Color` LIKE '".$shade."'";
 			jsonR($link, $sql);
 		}
 		if($searchval == 9)

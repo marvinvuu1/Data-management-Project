@@ -1,0 +1,16 @@
+h5 {
+    font-size: 25px;
+}
+button {
+    
+    border-color: lightgrey;
+    background-color: transparent;
+    padding:1px;
+    margin: 1px;
+    color:blue;
+}
+body {
+    padding-top: 100px;
+    padding-right: 200px;
+    padding-left: 200px;
+}

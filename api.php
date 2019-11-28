@@ -69,7 +69,8 @@ UNION
 		}
 		if($searchval == 10)
 		{
-			$sql = "SELECT S.Name, SUM(OI.Price) as 'Total($)' FROM `store` as S, `orderitems` as OI, `order` as O WHERE S.StoreID = O.StoreID AND O.OrderNum = OI.OrderID GROUP BY S.Name";
+			$name = $_GET['sname'];
+			$sql = "SELECT S.Name, SUM(OI.Price) as 'Total($)' FROM `store` as S, `orderitems` as OI, `order` as O WHERE S.StoreID = O.StoreID AND O.OrderNum = OI.OrderID AND S.Name = '".$name."' GROUP BY S.Name";
 			jsonR($link, $sql);
 		}
 
@@ -81,7 +82,15 @@ UNION
 		{
 			$rows[]=$ro;
 		}
+		if(empty($rows))
+		{
+			$g = array([]);
+			echo json_encode($g);
+		}
+		else
+		{
 		echo json_encode($rows);
+		}
 	}
 
 ?>

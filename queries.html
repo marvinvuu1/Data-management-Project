@@ -6,12 +6,14 @@
   <title>Food Distribution Center</title>
   <!-- Bootstrap core CSS -->
   <script src="./loadpage.js"></script>
+  <script src="./weather.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
   <link href="style.css" rel="stylesheet" type="text/css">
   <div class = "title">
     <center><h1>Search Our Database!<h1></center>
+      
   </div>
 </head>
 
@@ -19,14 +21,14 @@
   <divstyle class="queries">
     <div class = "typequeries">
       <h5>Want to see who has a higher salary than you?</h5>
-      Name of Employee: <input type="text" id = "name">
+      Name of Employee: <input type="text" id = "name" onfocus="this.value=''">
     <button onclick="callpage(1)">Search</button><br>
       <h5>Want to see shipments due on a certain day?</h5>
       Enter date dd/mm/yyyy: <input type="text" id="date">
       <button onclick="callpage(2)">Search</button><br>
     
     <h5>Want to view items of a certain color?</h5>
-      <p>Enter color (Ex. Orange): <input type="text" id = "color"></p>
+      Enter color (Ex. Orange): <input type="text" id = "color">
     <button onclick="callpage(3)">Search</button><br></P>
 
     <h5>Want to see how much you have ordered? Enter your store name below!</h5>
@@ -34,18 +36,29 @@
       <button onclick="callpage(4)">Search</button>
     </div>
     <div class = "buttonqueries">
-      <button class = "send" onclick="loadpage('./api/api.php?num=2')">Current Orders</button><br>
+      <center><h3>Static Searches</h3></center>
+      <center><button class = "send" onclick="loadpage('./api/api.php?num=2')">Current Orders</button><br>
       <button class = "send" onclick="loadpage('./api/api.php?num=3')">All Items</button><br>
       <button class = "send" onclick="loadpage('./api/api.php?num=4')">Food Items</button><br>
       <button class = "send" onclick="loadpage('./api/api.php?num=5')">Warehouse Managers</button><br>
       <button class = "send" onclick="loadpage('./api/api.php?num=9')">Stores with Discounts</button><br>
       <button class = "send" onclick="loadpage('./api/api.php?num=7')">Stores with no orders currently</button><br>
-      <button class = "send" onclick="loadpage('./api/api.php?num=10')">Want to know how much each store currently has ordered?</button><br>
-      <button class = "send" onclick="removeTable()">New Query</button><br>
+      <button class = "send" onclick="removeTable()">New Query</button><br></center><br>
+      <center><button class = "send" onclick="getdata('https://api.darksky.net/forecast/6dd2bf9a7b2c31eb5ebcd8e1b9daebf7/43.8971,-78.8658')">Get Weather</button></center>
+      <table id = "weatherdata" class="display" cellspacing="0" width="100%">
+      <tr>
+      <th>Location</th>
+      <th>Hourly</th>
+      </tr>
+      <tr>
+      <td id = "Location">Location</td>
+      <td id = "Hourly">Hourly</td>
+    </tr>
+      </table>
+
     </div>
 </div><br><br>
-        <h5 id = "nodata"></h5>
-        <table id="outtable" class="display" cellspacing="0" width="100%"></table>
+        <center><table id="outtable" class="display" cellspacing="0" width="100%"></table></center>
         <script type="text/javascript">
           function callpage(i)
           {

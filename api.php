@@ -11,7 +11,7 @@
 		if ($searchval == 1)
 		{
 			$name = $_GET['name'];
-			$sql = "SELECT * FROM `employees` as E WHERE E.Salary > ALL (SELECT B.Salary FROM employees as B WHERE B.FirstName LIKE '" . $name ."')";
+			$sql = "SELECT E.FirstName, E.LastName, E.Sex, E.WarehouseID FROM `employees` as E, `warehouse` as W WHERE E.WarehouseID = W.WarehouseID AND W.Address LIKE '" . $name ."'";
 			jsonR($link, $sql);
 			
 		}

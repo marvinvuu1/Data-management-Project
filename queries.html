@@ -25,7 +25,7 @@
 		<table id="weatherdata" class="display" cellspacing="0" width="100%">
 			<tr>
 				<th>Location</th>
-				<th>Summary</th>
+				<th>Hourly</th>
 			</tr>
 			<tr>
 				<th id="Location">Location</th>
@@ -33,10 +33,11 @@
 			</tr>
 		</table>
 	</div>
+	<div class="line"></div>
 	<div class="queries">
 		<div class="typequeries">
-			<h5>Want to see a list of our Employees?</h5>
-			City Location: <input type="text" id="name" onfocus="this.value=''">
+			<h5>Want to see who has a higher salary than you?</h5>
+			Name of Employee: <input type="text" id="name" onfocus="this.value=''">
 			<button onclick="callpage(1)">Search</button><br>
 			<h5>Want to see shipments due on a certain day?</h5>
 			Enter date dd/mm/yyyy: <input type="text" id="date">
@@ -51,11 +52,11 @@
 			Store Name: <input type="text" id="sname">
 			<button onclick="callpage(4)">Search</button>
 		</div>
-		<div class="buttonqueries">
+		<div class="buttonqueries" align = "right">
 			<center>
 				<h3>Static Searches</h3>
 			</center>
-			<center><button class="send" onclick="loadpage('./api/api.php?num=2')">Current Orders</button><br>
+				<button class="send" onclick="loadpage('./api/api.php?num=2')">Current Orders</button><br>
 				<button class="send" onclick="loadpage('./api/api.php?num=3')">All
 					Items</button><br>
 				<button class="send" onclick="loadpage('./api/api.php?num=4')">Food
@@ -66,7 +67,7 @@
 					with Discounts</button><br>
 				<button class="send" onclick="loadpage('./api/api.php?num=7')">Stores
 					with no orders currently</button><br>
-				<button class="send" onclick="removeTable()">New Query</button><br></center><br>
+				<button class="send" onclick="removeTable()">New Query</button><br><br>
 		</div>
 	</div>
 	<br>

@@ -13,6 +13,7 @@ div.title{
 }
 button.send {
     border-color: lightgrey;
+    background: white;
     padding:3px;
     margin: 5px;
     color: black;
@@ -20,7 +21,7 @@ button.send {
 body {
     padding-right: 200px;
     padding-left: 200px;
-    background-color:lightgrey;
+    background-color: lightgrey;
 }
 div.typequeries {
     float: left;
@@ -32,12 +33,16 @@ div.buttonqueries{
 div.queries{
     display: grid;
     grid-template-columns: 70% 30%;
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 150px;
+    padding-right: 150px;
     padding-bottom: 100px;
     background-color: white;    
 }
 div.weather{
     background-color: white;
+    padding: 10px;
 }
-
+.line{
+    border-bottom: 1px solid black;
+    padding: 1px
+}
